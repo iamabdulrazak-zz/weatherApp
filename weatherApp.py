@@ -4,20 +4,17 @@ try:
 except Exception as e:
   print('Modules are Missing! \n\n {}'.format(e))
 
-HEIGHT = 500
-WIDTH = 600
-
 def format_response(weather):
 	try:
 		name = weather['name']
 		desc = weather['weather'][0]['description']
 		temp = weather['main']['temp']
 
-		final_str = 'City: %s \nConditions: %s \nTemperature (°F): %s' % (name, desc, temp)
+		output = 'City: %s \nConditions: %s \nTemperature (°F): %s' % (name, desc, temp)
 	except:
-		final_str = 'There was a problem retrieving that information'
+		output = 'There was a problem retrieving information!'
 
-	return final_str
+	return output
 
 def get_weather(city):
 	weather_key = 'a4aa5e3d83ffefaba8c00284de6ef7c3'
@@ -25,12 +22,10 @@ def get_weather(city):
 	params = {'APPID': weather_key, 'q': city, 'units': 'imperial'}
 	response = requests.get(url, params=params)
 	weather = response.json()
-
 	label['text'] = format_response(weather)
 
 root = Tk()
-
-canvas = Canvas(root, height=HEIGHT, width=WIDTH)
+canvas = Canvas(root, height=500, width=600)
 canvas.pack()
 
 background_image = PhotoImage(file='landscape.png')
