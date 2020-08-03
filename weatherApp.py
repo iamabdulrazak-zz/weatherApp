@@ -12,7 +12,7 @@ def format_response(weather):
 
 		output = 'City: %s\n Conditions: %s\n Temperature (°F): %s' % (name, desc, temp)
 	except:
-		output = 'There was a problem retrieving information!'
+		output = 'Having a problem retrieving information!'
 
 	return output
 
