@@ -10,7 +10,7 @@ def format_response(weather):
 		desc = weather['weather'][0]['description']
 		temp = weather['main']['temp']
 
-		output = 'City: %s \nConditions: %s \nTemperature (°F): %s' % (name, desc, temp)
+		output = 'City: %s\n Conditions: %s\n Temperature (°F): %s' % (name, desc, temp)
 	except:
 		output = 'There was a problem retrieving information!'
 
@@ -28,7 +28,7 @@ root = Tk()
 canvas = Canvas(root, height=500, width=600)
 canvas.pack()
 
-background_image = PhotoImage(file='landscape.png')
+background_image = PhotoImage(file='./img/landscape.png')
 background_label = Label(root, image=background_image)
 background_label.place(relwidth=1, relheight=1)
 
