@@ -1,11 +1,11 @@
-try: # checking if the modules are installed!
+try: # checking if the modules are installed
   from tkinter import *
   import requests
 
-except Exception as e: # printing a message if there is an issue with the packages!
+except Exception as e: # printing a message if there is an issue with the packages
   print('Modules are Missing! \n\n {}'.format(e))
 
-def format_response(weather):
+def get_response(weather):
 	try:
 		name = weather['name']
 		desc = weather['weather'][0]['description']
@@ -22,7 +22,7 @@ def get_weather(city):
 	params = {'APPID': weather_key, 'q': city, 'units': 'imperial'}
 	response = requests.get(url, params=params)
 	weather = response.json()
-	label['text'] = format_response(weather)
+	label['text'] = get_response(weather)
 
 app = Tk() # creating the app! 
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
