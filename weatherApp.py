@@ -1,7 +1,8 @@
-try:
+try: # checking if the modules are installed!
   from tkinter import *
   import requests
-except Exception as e:
+
+except Exception as e: # printing a message if there is an issue with the packages!
   print('Modules are Missing! \n\n {}'.format(e))
 
 def format_response(weather):
@@ -9,7 +10,6 @@ def format_response(weather):
 		name = weather['name']
 		desc = weather['weather'][0]['description']
 		temp = weather['main']['temp']
-
 		output = 'City: %s\n Conditions: %s\n Temperature (°F): %s' % (name, desc, temp)
 	except:
 		output = 'Having a problem retrieving information!'
@@ -24,27 +24,27 @@ def get_weather(city):
 	weather = response.json()
 	label['text'] = format_response(weather)
 
-root = Tk()
-canvas = Canvas(root, height=500, width=600)
-canvas.pack()
+app = Tk() # creating the app! 
+canvas = Canvas(app, height=500, width=600) # creating a canvas!
+canvas.pack() # making it to fillout
 
-background_image = PhotoImage(file='./img/landscape.png')
-background_label = Label(root, image=background_image)
-background_label.place(relwidth=1, relheight=1)
+background_image = PhotoImage(file='./img/landscape.png') # setting bg image!
+background_label = Label(app, image=background_image) # labling the image!
+background_label.place(relwidth=1, relheight=1) # placing that label
 
-frame = Frame(root, bg='#80c1ff', bd=5)
-frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
+frame = Frame(app, bg='#80c1ff', bd=5) # initial new frame!
+frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n') # placing the frame!
 
-entry = Entry(frame, font=40)
-entry.place(relwidth=0.65, relheight=1)
+entry = Entry(frame, font=40) # creating the entry(typing bar)
+entry.place(relwidth=0.65, relheight=1) # placing that entry!
 
-button = Button(frame, text="Get Weather", font=40, command=lambda: get_weather(entry.get()))
-button.place(relx=0.7, relheight=1, relwidth=0.3)
+button = Button(frame, text="Get Weather", font=40, command=lambda: get_weather(entry.get())) # creating button!
+button.place(relx=0.7, relheight=1, relwidth=0.3) # placing the button!
 
-lower_frame = Frame(root, bg='#80c1ff', bd=10)
-lower_frame.place(relx=0.5, rely=0.25, relwidth=0.75, relheight=0.6, anchor='n')
+second_frame = Frame(app, bg='#80c1ff', bd=10) # making another new frame!
+second_frame.place(relx=0.5, rely=0.25, relwidth=0.75, relheight=0.6, anchor='n') #placing the new frame!
 
-label = Label(lower_frame)
-label.place(relwidth=1, relheight=1)
+label = Label(second_frame) # labling the second frame!
+label.place(relwidth=1, relheight=1) #placing the frame!
 
-root.mainloop()
+app.mainloop() # runing the app!
