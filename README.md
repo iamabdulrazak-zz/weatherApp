@@ -1,6 +1,4 @@
 # weatherApp
-
-# videoConverter
 weatherApp(.py) this is a 'GUI' weatherApp with api
 
 ## Packages
