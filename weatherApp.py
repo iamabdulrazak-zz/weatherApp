@@ -28,7 +28,7 @@ app = Tk() # creating the app!
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
 canvas.pack() # making it to fillout
 
-bg_img = PhotoImage(file='./img/bg4.png') # setting bg image!
+bg_img = PhotoImage(file='./img/bg3.png') # setting bg image!
 bg_label = Label(app, image=bg_img) # labling the image!
 bg_label.place(relwidth=1, relheight=1) # placing that label
 
@@ -41,7 +41,7 @@ entry.place(relwidth=0.65, relheight=1) # placing that entry!
 button = Button(frame, text="Get Weather", font=40, command=lambda: get_weather(entry.get())) # creating button!
 button.place(relx=0.7, relheight=1, relwidth=0.3) # placing the button!
 
-second_frame = Frame(app, bg='#170059', bd=8) # making another new frame!
+second_frame = Frame(app, bg='#170059', bd=6) # making another new frame!
 second_frame.place(relx=0.5, rely=0.25, relwidth=0.75, relheight=0.6, anchor='n') #placing the new frame!
 
 label = Label(second_frame) # labling the second frame!
