@@ -1,9 +1,17 @@
 try: # checking if the modules are installed
   from tkinter import *
   import requests
-
 except Exception as e: # printing a message if there is an issue with the packages
   print('Modules are Missing! \n\n {}'.format(e))
+
+def get_weather(city):
+	key = 'a4aa5e3d83ffefaba8c00284de6ef7c3'
+	url = 'https://api.openweathermap.org/data/2.5/weather'
+	params = {'APPID': key, 'q': city, 'units': 'imperial'} # use 'celsius' if you prefer!
+	response = requests.get(url, params=params) # getting data as a json format from the api!
+	print(response.json()) # printing the response from the api!
+	weather = response.json()
+	label['text'] = get_response(weather)
 
 def get_response(weather):
 	try:
@@ -16,21 +24,13 @@ def get_response(weather):
 
 	return output
 
-def get_weather(city):
-	weather_key = 'a4aa5e3d83ffefaba8c00284de6ef7c3'
-	url = 'https://api.openweathermap.org/data/2.5/weather'
-	params = {'APPID': weather_key, 'q': city, 'units': 'imperial'}
-	response = requests.get(url, params=params)
-	weather = response.json()
-	label['text'] = get_response(weather)
-
 app = Tk() # creating the app! 
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
 canvas.pack() # making it to fillout
 
-background_image = PhotoImage(file='./img/landscape.png') # setting bg image!
-background_label = Label(app, image=background_image) # labling the image!
-background_label.place(relwidth=1, relheight=1) # placing that label
+bg_img = PhotoImage(file='./img/landscape.png') # setting bg image!
+bg_label = Label(app, image=bg_img) # labling the image!
+bg_label.place(relwidth=1, relheight=1) # placing that label
 
 frame = Frame(app, bg='#80c1ff', bd=5) # initial new frame!
 frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n') # placing the frame!
