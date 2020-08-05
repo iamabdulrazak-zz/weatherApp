@@ -27,6 +27,7 @@ def get_response(weather):
 
 app = Tk() # creating the app! 
 app.title('Weather App') # adding title!
+app.iconphoto(FALSE, PhotoImage(file='./img/icon/icon1.png')) # adding icon to the app!
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
 canvas.pack() # making it to fillout
 
