@@ -19,7 +19,7 @@ def get_response(weather):
 		desc = weather['weather'][0]['description'] # extracting the condition of that city!
 		temp = weather['main']['temp'] # extracting the temperature of the city(in °F)!
 		celsius = (temp - 32) * 5/9 # converting the °F to °C
-		output = 'City: %s\n Conditions: %s\n Temperature (°C): %s' % (name, desc, celsius) # output
+		output = 'City: %s\n Conditions: %s\n Temperature (°C): %s' % (name, desc, round(celsius, 1)) # output
 	except: # if there any issue an error statement will appear!
 		output = 'Having a problem retrieving information!'
 
@@ -31,7 +31,7 @@ app.iconphoto(FALSE, PhotoImage(file='./img/icon/icon1.png')) # adding icon to t
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
 canvas.pack() # making it to fillout
 
-bg_img = PhotoImage(file='./img/bg2.png') # setting bg image!
+bg_img = PhotoImage(file='./img/bg4.png') # setting bg image!
 bg_label = Label(app, image=bg_img) # labling the image!
 bg_label.place(relwidth=1, relheight=1) # placing that label
 
@@ -41,7 +41,7 @@ frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n') # plac
 entry = Entry(frame, font=40) # creating the entry(typing bar)
 entry.place(relwidth=0.65, relheight=1) # placing that entry!
 
-button = Button(frame, text="Get Weather", font=40, command=lambda: get_weather(entry.get())) # creating button!
+button = Button(frame, text="Get Weather", font=35, command=lambda: get_weather(entry.get())) # creating button!
 button.place(relx=0.7, relheight=1, relwidth=0.3) # placing the button!
 
 second_frame = Frame(app, bg='#170059', bd=6) # making another new frame!
