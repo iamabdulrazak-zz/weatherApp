@@ -15,20 +15,22 @@ def get_weather(city):
 
 def get_response(weather):
 	try:
-		name = weather['name']
-		desc = weather['weather'][0]['description']
-		temp = weather['main']['temp']
-		output = 'City: %s\n Conditions: %s\n Temperature (°F): %s' % (name, desc, temp)
-	except:
+		name = weather['name'] # extracting the name of the city
+		desc = weather['weather'][0]['description'] # extracting the condition of that city!
+		temp = weather['main']['temp'] # extracting the temperature of the city(in °F)!
+		celsius = (temp - 32) * 5/9 # converting the °F to °C
+		output = 'City: %s\n Conditions: %s\n Temperature (°C): %s' % (name, desc, celsius) # output
+	except: # if there any issue an error statement will appear!
 		output = 'Having a problem retrieving information!'
 
 	return output
 
 app = Tk() # creating the app! 
+app.title('Weather App') # adding title!
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
 canvas.pack() # making it to fillout
 
-bg_img = PhotoImage(file='./img/bg3.png') # setting bg image!
+bg_img = PhotoImage(file='./img/bg2.png') # setting bg image!
 bg_label = Label(app, image=bg_img) # labling the image!
 bg_label.place(relwidth=1, relheight=1) # placing that label
 
