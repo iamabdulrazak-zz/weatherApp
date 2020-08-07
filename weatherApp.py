@@ -23,7 +23,7 @@ def get_response(weather): # extracting specific data from the json variables!
 	except: # if there any issue an error statement will appear!
 		output = 'Having a problem retrieving information!'
 
-	return output
+	return output # returning the output!
 
 app = Tk() # creating the app! 
 app.title('Weather App') # adding title!
