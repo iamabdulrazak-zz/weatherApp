@@ -27,7 +27,7 @@ def get_response(weather): # extracting specific data from the json variables!
 
 app = Tk() # creating the app! 
 app.title('Weather App') # adding title!
-app.iconphoto(FALSE, PhotoImage(file='./img/icon/icon1.png')) # adding icon to the app!
+app.iconphoto(FALSE, PhotoImage(file='./img/icon/sun.png')) # adding icon to the app!
 canvas = Canvas(app, height=500, width=600) # creating a canvas!
 canvas.pack() # making it to fillout
 
