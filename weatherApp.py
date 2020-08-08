@@ -20,8 +20,6 @@ def get_response(weather): # extracting specific data from the json variables!
 		temp = weather['main']['temp'] # extracting the temperature of the city(in °F)!
 		celsius = (temp - 32) * 5/9 # converting the °F to °C
 		output = 'City: %s\n Conditions: %s\n Temperature (°C): %s' % (name, desc, round(celsius, 1)) # the output
-		with open('./data/data.csv', 'w') as data: # making a new dataset!
-			data.write(output) # writing on the file!
 	except: # if there any issue an error statement will appear!
 		output = 'Having a problem retrieving information!'
 
